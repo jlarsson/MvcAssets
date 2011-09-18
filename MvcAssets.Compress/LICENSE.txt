@@ -1,0 +1,3 @@
+﻿http://yuilibrary.com/license/
+http://www.mozilla.org/MPL/
+https://github.com/purcell/jargs/blob/master/LICENCE

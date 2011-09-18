@@ -5,12 +5,13 @@ namespace MvcAssets
 {
     public static class MvcAssets
     {
-        public static Func<HttpContextBase, IMvcHtmlAssets> Factory { get; set; }
+        public static Func<HttpContextBase, IMvcAssets> Factory { get; set; }
 
         static MvcAssets()
         {
-            Factory = context => new HtmlAssets()
+            Factory = context => new Assets()
                                 {
+                                    Compressor = new NullCompressor(),
                                     LinkResolver = new VirtualPathLinkResolver(context)
                                 };
         }

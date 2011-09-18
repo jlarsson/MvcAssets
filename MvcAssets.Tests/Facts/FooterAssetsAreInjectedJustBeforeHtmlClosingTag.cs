@@ -5,7 +5,7 @@ namespace MvcAssets.Tests.Facts
     [TestFixture]
     public class FooterAssetsAreInjectedJustBeforeHtmlClosingTag : MarkupFixtureBase
     {
-        protected override void DefineAssets(IHtmlAssets assets)
+        protected override void DefineAssets(IAssets assets)
         {
             assets
                 .WithFooterPlacement()

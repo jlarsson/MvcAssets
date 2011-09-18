@@ -2,7 +2,7 @@ using System.Web;
 
 namespace MvcAssets
 {
-    public class VirtualPathLinkResolver : IHtmlAssetLinkResolver
+    public class VirtualPathLinkResolver : IAssetLinkResolver
     {
         private readonly HttpContextBase _context;
 
@@ -11,18 +11,27 @@ namespace MvcAssets
             _context = context;
         }
 
-        public string Resolve(IHtmlLinkAsset link)
+        public IAssetSource Resolve(ILinkAsset link)
         {
             var url = link.Link;
             if (string.IsNullOrEmpty(url))
             {
-                return url;
+                return null;
             }
             if (url[0] == '~')
             {
-                return VirtualPathUtility.ToAbsolute(url, _context.Request.ApplicationPath);
+                var mapped = VirtualPathUtility.ToAbsolute(url, _context.Request.ApplicationPath);
+                return new AssetSource()
+                           {
+                               Url = mapped,
+                               PhysicalPath = _context.Request.MapPath(mapped)
+                           };
             }
-            return url;
+            return new AssetSource()
+            {
+                Url = url,
+                PhysicalPath = _context.Request.MapPath(url)
+            };
         }
     }
 }

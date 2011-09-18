@@ -7,7 +7,8 @@ namespace MvcAssets
 {
     public abstract class AssetsInjectorBase : IAssetsInjector
     {
-        public IHtmlAssetLinkResolver LinkResolver { get; set; }
+        public ICompressor Compressor { get; set; }
+        public IAssetLinkResolver LinkResolver { get; set; }
         public IEnumerable<ICssInline> CssInlines { get; set; }
         public IEnumerable<ICssLink> CssLinks { get; set; }
         public IEnumerable<IJavascriptInline> JavascriptInlines { get; set; }
@@ -32,9 +33,9 @@ namespace MvcAssets
                 writer.Write(markup.Substring(0, match.Index));
 
 
-                WriteLinks(writer, @"<link type=""text/css"" rel=""stylesheet"" href=""{0}"" />", CssLinks);
+                WriteLinks(writer, @"<link type=""text/css"" rel=""stylesheet"" href=""{0}"" />", Compressor.CompressCss(GetSources(CssLinks)));
                 WriteInlines(writer, "<style>", "</style>", CssInlines);
-                WriteLinks(writer, @"<script type=""text/javascript"" src=""{0}""></script>", JavascriptLinks);
+                WriteLinks(writer, @"<script type=""text/javascript"" src=""{0}""></script>", Compressor.CompressJavascript(GetSources(JavascriptLinks)));
                 WriteInlines(writer, @"<script type=""text/javascript"">", "</script>", JavascriptInlines);
 
                 WriteInlines(
@@ -48,24 +49,29 @@ namespace MvcAssets
             }
         }
 
-        private void WriteLinks(TextWriter writer, string format, IEnumerable<IHtmlLinkAsset> links)
+        private IEnumerable<IAssetSource> GetSources(IEnumerable<ILinkAsset> links)
         {
-            var sorted = from inline in links
-                         group inline by inline.GetPriority(0)
-                         into g
-                         orderby g.Key
-                         from sortedInline in g
-                         select sortedInline;
+            return from inline in links
+                          group inline by inline.GetPriority(0)
+                              into g
+                              orderby g.Key
+                              from sortedInline in g
+                              let source = LinkResolver.Resolve(sortedInline)
+                              where source != null
+                              select source;
 
-            foreach (var link in sorted)
+        }
+
+        private void WriteLinks(TextWriter writer, string format, IEnumerable<IAssetSource> sources)
+        {
+            foreach (var source in sources)
             {
-                var resolved = LinkResolver.Resolve(link);
-                writer.WriteLine(format, resolved);
+                writer.WriteLine(format, source.Url);
             }
         }
 
         private void WriteInlines(TextWriter writer, string startTag, string endTag,
-                                  IEnumerable<IHtmlInlineAsset> inlines)
+                                  IEnumerable<IInlineAsset> inlines)
         {
             var sorted = from inline in inlines
                          group inline by inline.GetPriority(0)

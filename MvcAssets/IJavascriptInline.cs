@@ -1,6 +1,6 @@
 namespace MvcAssets
 {
-    public interface IJavascriptInline : IHtmlInlineAsset
+    public interface IJavascriptInline : IInlineAsset
     {
     }
 }

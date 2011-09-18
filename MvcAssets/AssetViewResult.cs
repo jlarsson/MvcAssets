@@ -6,10 +6,10 @@ namespace MvcAssets
 {
     public class AssetViewResult : ActionResult
     {
-        private readonly HtmlAssets _assets;
+        private readonly Assets _assets;
         private readonly ViewResult _inner;
 
-        public AssetViewResult(ViewResult inner, HtmlAssets assets)
+        public AssetViewResult(ViewResult inner, Assets assets)
         {
             _inner = inner;
             _assets = assets;

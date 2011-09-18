@@ -9,9 +9,9 @@ namespace MvcAssets.Tests
         [Test]
         public void Test()
         {
-            var assets = new HtmlAssets
+            var assets = new Assets
                              {
-                                 LinkResolver = new AsIsHtmlAssetLinkResolver()
+                                 LinkResolver = new AsIsAssetLinkResolver()
                              };
 
             assets

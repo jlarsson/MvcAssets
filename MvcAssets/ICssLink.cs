@@ -1,6 +1,6 @@
 namespace MvcAssets
 {
-    public interface ICssLink : IHtmlLinkAsset
+    public interface ICssLink : ILinkAsset
     {
     }
 }

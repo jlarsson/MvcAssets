@@ -1,10 +1,8 @@
 namespace MvcAssets
 {
-    public class CssInline : ICssInline
+    public abstract class AssetBase : IAsset
     {
-        #region ICssInline Members
-
-        public string Inline { get; set; }
+        #region IHtmlAsset Members
 
         public int? Priority { get; set; }
 

@@ -134,12 +134,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="cache\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MvcAssets.Compress\MvcAssets.Compress.csproj">
+      <Project>{7E4DE4C6-376C-4E0D-A4EB-59E6FD5D45AC}</Project>
+      <Name>MvcAssets.Compress</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MvcAssets\MvcAssets.csproj">
       <Project>{C7DF34E6-7A3C-4595-8EA4-6C6B4DB81B6C}</Project>
       <Name>MvcAssets</Name>

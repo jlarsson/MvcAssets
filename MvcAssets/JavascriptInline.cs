@@ -1,6 +1,6 @@
 namespace MvcAssets
 {
-    public class JavascriptInline : HtmlAssetBase, IJavascriptInline
+    public class JavascriptInline : AssetBase, IJavascriptInline
     {
         #region IJavascriptInline Members
 

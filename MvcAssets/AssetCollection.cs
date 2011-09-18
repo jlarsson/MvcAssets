@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MvcAssets
 {
-    public class AssetCollection<T> : IAssetCollection<T> where T : IHtmlAsset
+    public class AssetCollection<T> : IAssetCollection<T> where T : IAsset
     {
         private readonly HashSet<T> _addedAssets;
         private readonly List<T> _assets = new List<T>();

@@ -6,14 +6,14 @@ namespace MvcAssets
     {
         private static readonly object Key = new {Key = "HttpContextBase.Assets"};
 
-        public static IMvcHtmlAssets TryGetAssets(this HttpContextBase httpContext)
+        public static IMvcAssets TryGetAssets(this HttpContextBase httpContext)
         {
-            return httpContext.Items[Key] as IMvcHtmlAssets;
+            return httpContext.Items[Key] as IMvcAssets;
         }
 
-        public static IMvcHtmlAssets Assets(this HttpContextBase httpContext)
+        public static IMvcAssets Assets(this HttpContextBase httpContext)
         {
-            var assets = httpContext.Items[Key] as IMvcHtmlAssets;
+            var assets = httpContext.Items[Key] as IMvcAssets;
             if (assets == null)
             {
                 assets = MvcAssets.Factory(httpContext);

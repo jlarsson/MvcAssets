@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 using MvcAssets;
+using MvcAssets.Compress;
 
 namespace MvcAssetsDemo.Web
 {
@@ -34,6 +35,20 @@ namespace MvcAssetsDemo.Web
             RegisterRoutes(RouteTable.Routes);
 
             GlobalFilters.Filters.Add(new HandleMvcAssetsAttribute());
+
+
+            MvcAssets.MvcAssets.Factory = context => new Assets()
+                                                         {
+                                                             LinkResolver = new VirtualPathLinkResolver(context),
+                                                             Compressor = new YuiCompressor()
+                                                                              {
+                                                                                  LinkResolver =
+                                                                                      new VirtualPathLinkResolver(
+                                                                                      context),
+                                                                                  VirtualCachePath = "~/cache/",
+
+                                                                              }
+                                                         };
         }
     }
 }

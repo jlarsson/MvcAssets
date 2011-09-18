@@ -10,9 +10,9 @@ namespace MvcAssets.Tests
         [Test]
         public void RunTest()
         {
-            var assets = new HtmlAssets
+            var assets = new Assets
                              {
-                                 LinkResolver = new AsIsHtmlAssetLinkResolver()
+                                 LinkResolver = new AsIsAssetLinkResolver()
                              };
 
             DefineAssets(assets);
@@ -26,7 +26,7 @@ namespace MvcAssets.Tests
             return new Regex("\\s").Replace(text, "");
         }
 
-        protected abstract void DefineAssets(IHtmlAssets assets);
+        protected abstract void DefineAssets(IAssets assets);
 
         protected abstract string GetExpectedMarkup();
         protected abstract string GetInputMarkup();

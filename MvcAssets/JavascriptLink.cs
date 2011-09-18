@@ -8,7 +8,7 @@ namespace MvcAssets
 
         public int? Priority { get; set; }
 
-        public HtmlAssetPlacement? Placement { get; set; }
+        public AssetPlacement? Placement { get; set; }
 
         #endregion
     }
