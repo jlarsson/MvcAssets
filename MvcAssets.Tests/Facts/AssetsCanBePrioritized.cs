@@ -13,14 +13,12 @@ namespace MvcAssets.Tests.Facts
                 .CssInline("body {/**/}")
                 .JsInline("var inlineJavacsript = {};")
                 .JsDomReady("alert('dom ready');")
-                
                 .WithPriority(-1000)
                 .CssLink("csslink-hi-prio.css")
                 .JsLink("jslink-hi-prio.js")
                 .CssInline("body {/*hi prio*/}")
                 .JsInline("var inlineJavacsriptHiPrio = {};")
                 .JsDomReady("alert('dom ready hi prio');")
-
                 .WithPriority(1000)
                 .CssLink("csslink-lo-prio.css")
                 .JsLink("jslink-lo-prio.js")

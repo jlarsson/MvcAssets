@@ -11,9 +11,9 @@ namespace MvcAssets.Tests
         public void RunTest()
         {
             var assets = new HtmlAssets
-            {
-                LinkResolver = new AsIsHtmlAssetLinkResolver()
-            };
+                             {
+                                 LinkResolver = new AsIsHtmlAssetLinkResolver()
+                             };
 
             DefineAssets(assets);
             var writer = new StringWriter();
@@ -38,11 +38,10 @@ namespace MvcAssets.Tests
                 Assert.That(
                     RemoveWhitespace(expected)
                     ,
-
                     Is.EqualTo(RemoveWhitespace(actual))
                     );
             }
-            catch(Exception)
+            catch (Exception)
             {
                 Console.Out.WriteLine("# Markup Fixture failed");
                 Console.Out.WriteLine("# Expected");
@@ -52,12 +51,6 @@ namespace MvcAssets.Tests
 
                 throw;
             }
-/*
-            Assert.AreEqual(
-                RemoveWhitespace(expected),
-                RemoveWhitespace(actual)
-                );
- */ 
         }
     }
 }

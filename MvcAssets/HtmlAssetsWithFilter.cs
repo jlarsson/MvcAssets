@@ -4,14 +4,16 @@ namespace MvcAssets
 {
     public class HtmlAssetsWithFilter : IHtmlAssets
     {
-        private readonly IHtmlAssets _inner;
         private readonly Action<IHtmlAsset> _filter;
+        private readonly IHtmlAssets _inner;
 
         public HtmlAssetsWithFilter(IHtmlAssets inner, Action<IHtmlAsset> filter)
         {
             _inner = inner;
             _filter = filter;
         }
+
+        #region IHtmlAssets Members
 
         public IHtmlAssets JsLink(IJavascriptLink link)
         {
@@ -47,5 +49,7 @@ namespace MvcAssets
             _inner.JsDomReady(inline);
             return this;
         }
+
+        #endregion
     }
 }

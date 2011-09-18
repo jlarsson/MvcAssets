@@ -3,7 +3,7 @@ using NUnit.Framework;
 namespace MvcAssets.Tests.Facts
 {
     [TestFixture]
-    public class CssInlinesAreGroupedInSameTag: MarkupFixtureBase
+    public class CssInlinesAreGroupedInSameTag : MarkupFixtureBase
     {
         protected override void DefineAssets(IHtmlAssets assets)
         {
@@ -12,6 +12,7 @@ namespace MvcAssets.Tests.Facts
                 .CssInline("body {/**/}")
                 .CssInline("a {/**/}");
         }
+
         protected override string GetInputMarkup()
         {
             return

@@ -52,10 +52,10 @@ namespace MvcAssets
         {
             var sorted = from inline in links
                          group inline by inline.GetPriority(0)
-                             into g
-                             orderby g.Key
-                             from sortedInline in g
-                             select sortedInline;
+                         into g
+                         orderby g.Key
+                         from sortedInline in g
+                         select sortedInline;
 
             foreach (var link in sorted)
             {

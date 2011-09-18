@@ -149,5 +149,12 @@ namespace MvcAssets
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            // We return an empty string case someone refers to Html.Assets() in a write statement
+            // Example (razor): @Html.Assets.JsInclude(...)
+            return string.Empty;
+        }
     }
 }

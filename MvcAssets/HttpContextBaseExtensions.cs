@@ -16,7 +16,7 @@ namespace MvcAssets
             var assets = httpContext.Items[Key] as IMvcHtmlAssets;
             if (assets == null)
             {
-                assets = new HtmlAssets();
+                assets = MvcAssets.Factory(httpContext);
                 httpContext.Items[Key] = assets;
             }
             return assets;
