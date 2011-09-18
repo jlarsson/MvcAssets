@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C7DF34E6-7A3C-4595-8EA4-6C6B4DB81B6C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MvcAssets</RootNamespace>
+    <AssemblyName>MvcAssets</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AsIsHtmlAssetLinkResolver.cs" />
+    <Compile Include="AssetCollection.cs" />
+    <Compile Include="AssetsInjectorBase.cs" />
+    <Compile Include="AssetViewResult.cs" />
+    <Compile Include="CssInline.cs" />
+    <Compile Include="CssLink.cs" />
+    <Compile Include="FooterAssetsInjector.cs" />
+    <Compile Include="HandleMvcAssetsAttribute.cs" />
+    <Compile Include="HeaderAssetsInjector.cs" />
+    <Compile Include="HtmlAssetBase.cs" />
+    <Compile Include="HtmlAssetExtensions.cs" />
+    <Compile Include="HtmlAssetPlacement.cs" />
+    <Compile Include="HtmlAssets.cs" />
+    <Compile Include="HtmlAssetsExtensions.cs" />
+    <Compile Include="HtmlAssetsWithFilter.cs" />
+    <Compile Include="HtmlHelperExtensions.cs" />
+    <Compile Include="HttpContextBaseExtensions.cs" />
+    <Compile Include="IAssetCollection.cs" />
+    <Compile Include="IAssetsInjector.cs" />
+    <Compile Include="ICssLink.cs" />
+    <Compile Include="IHtmlAsset.cs" />
+    <Compile Include="IHtmlAssetLinkResolver.cs" />
+    <Compile Include="IHtmlAssets.cs" />
+    <Compile Include="ICssInline.cs" />
+    <Compile Include="IHtmlInlineAsset.cs" />
+    <Compile Include="IHtmlLinkAsset.cs" />
+    <Compile Include="IJavascriptInline.cs" />
+    <Compile Include="IJavascriptLink.cs" />
+    <Compile Include="IMvcHtmlAssets.cs" />
+    <Compile Include="JavascriptInline.cs" />
+    <Compile Include="JavascriptLink.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
