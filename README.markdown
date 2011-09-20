@@ -1,6 +1,5 @@
-
 ## Summary
-Javascript and Css asset manager.
+Javascript and CSS asset manager.
 
 ## Installation
 
