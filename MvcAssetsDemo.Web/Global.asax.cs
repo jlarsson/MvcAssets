@@ -34,7 +34,7 @@ namespace MvcAssetsDemo.Web
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
 
-            GlobalFilters.Filters.Add(new HandleMvcAssetsAttribute());
+            GlobalFilters.Filters.Add(new MvcAssetsAttribute());
 
 
             MvcAssets.MvcAssets.Factory = context => new Assets()

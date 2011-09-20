@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <licenseUrl>https://github.com/jlarsson/MvcAssets/blob/master/MvcAssets.Compress/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/jlarsson/MvcAssets</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2011</copyright>
+    <dependencies>
+      <dependency id="MvcAssets" version="0.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\release\yuicompressor-2.4.6.dll" target="lib\net40" />
+    <file src="bin\release\IKVM.OpenJDK.Core.dll" target="lib\net40" />
+    <file src="bin\release\IKVM.Runtime.dll" target="lib\net40" />
+  </files>
+</package>
