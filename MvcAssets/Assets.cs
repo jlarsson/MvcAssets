@@ -28,6 +28,11 @@ namespace MvcAssets
         public ICompressor Compressor { get; set; }
         public IAssetLinkResolver LinkResolver { get; set; }
 
+        public Assets()
+        {
+            Compressor = new NullCompressor();
+        }
+
         #region IMvcAssets Members
 
         public IAssets JsLink(IJavascriptLink link)

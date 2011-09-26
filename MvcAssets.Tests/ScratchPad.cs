@@ -23,8 +23,7 @@ namespace MvcAssets.Tests
                 .JsLink("/scripts/jquery.min.js")
                 .CssInline("body {background: white}")
                 .JsInline("var X = {};")
-                .JsDomReady("alert(1);")
-                ;
+                .JsDomReady("alert(1);");
 
 
             assets.RewriteOutput("<html><head><title>sample</title></head><body></body></html>", Console.Out);
