@@ -10,7 +10,7 @@ namespace MvcAssets
         {
             Factory = context => new Assets
                                      {
-                                         Compressor = new AjaxMinCompressor(),
+                                         Compressor = new NullCompressor(),
                                          LinkResolver = new VirtualPathLinkResolver(context)
                                      };
         }
