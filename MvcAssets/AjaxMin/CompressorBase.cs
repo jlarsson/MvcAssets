@@ -50,7 +50,7 @@ namespace MvcAssets.AjaxMin
             var outputAsset = GetCompinedOutputPath(paths);
             if (File.Exists(outputAsset.PhysicalPath))
             {
-                //return outputAsset;
+                return outputAsset;
             }
 
             var writer = new StringWriter();

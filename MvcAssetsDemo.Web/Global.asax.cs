@@ -2,7 +2,6 @@
 using System.Web.Routing;
 using MvcAssets;
 using MvcAssets.AjaxMin;
-using MvcAssets.Compress;
 
 namespace MvcAssetsDemo.Web
 {
