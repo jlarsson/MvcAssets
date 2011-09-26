@@ -1,4 +1,0 @@
-﻿http://sourceforge.net/apps/mediawiki/ikvm/index.php?title=License
-http://yuilibrary.com/license/
-http://www.mozilla.org/MPL/
-https://github.com/purcell/jargs/blob/master/LICENCE
