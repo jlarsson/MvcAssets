@@ -22,9 +22,17 @@ namespace MvcAssets
             {
                 var mapped = VirtualPathUtility.ToAbsolute(url, _context.Request.ApplicationPath);
                 return new AssetSource()
+                {
+                    Url = mapped,
+                    PhysicalPath = _context.Request.MapPath(mapped)
+                };
+            }
+            if (url.Contains("://"))
+            {
+                return new AssetSource()
                            {
-                               Url = mapped,
-                               PhysicalPath = _context.Request.MapPath(mapped)
+                               Url = url,
+                               PhysicalPath = string.Empty
                            };
             }
             return new AssetSource()
