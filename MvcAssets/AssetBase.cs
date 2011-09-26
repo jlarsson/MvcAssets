@@ -2,7 +2,7 @@ namespace MvcAssets
 {
     public abstract class AssetBase : IAsset
     {
-        #region IHtmlAsset Members
+        #region IAsset Members
 
         public int? Priority { get; set; }
 

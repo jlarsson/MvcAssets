@@ -1,5 +1,6 @@
 using System;
 using System.Web;
+using MvcAssets.AjaxMin;
 
 namespace MvcAssets
 {
@@ -11,7 +12,7 @@ namespace MvcAssets
         {
             Factory = context => new Assets()
                                 {
-                                    Compressor = new NullCompressor(),
+                                    Compressor = new AjaxMinCompressor(),
                                     LinkResolver = new VirtualPathLinkResolver(context)
                                 };
         }

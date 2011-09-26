@@ -2,7 +2,7 @@ namespace MvcAssets
 {
     public class AssetSource : IAssetSource
     {
-        #region ILinkAssetSource Members
+        #region IAssetSource Members
 
         public string Url { get; set; }
 

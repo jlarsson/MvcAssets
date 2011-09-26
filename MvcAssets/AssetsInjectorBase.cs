@@ -33,9 +33,11 @@ namespace MvcAssets
                 writer.Write(markup.Substring(0, match.Index));
 
 
-                WriteLinks(writer, @"<link type=""text/css"" rel=""stylesheet"" href=""{0}"" />", Compressor.CompressCss(GetSources(CssLinks)));
+                WriteLinks(writer, @"<link type=""text/css"" rel=""stylesheet"" href=""{0}"" />",
+                           Compressor.CompressCss(GetSources(CssLinks)));
                 WriteInlines(writer, "<style>", "</style>", CssInlines);
-                WriteLinks(writer, @"<script type=""text/javascript"" src=""{0}""></script>", Compressor.CompressJavascript(GetSources(JavascriptLinks)));
+                WriteLinks(writer, @"<script type=""text/javascript"" src=""{0}""></script>",
+                           Compressor.CompressJavascript(GetSources(JavascriptLinks)));
                 WriteInlines(writer, @"<script type=""text/javascript"">", "</script>", JavascriptInlines);
 
                 WriteInlines(
@@ -52,14 +54,13 @@ namespace MvcAssets
         private IEnumerable<IAssetSource> GetSources(IEnumerable<ILinkAsset> links)
         {
             return from inline in links
-                          group inline by inline.GetPriority(0)
-                              into g
-                              orderby g.Key
-                              from sortedInline in g
-                              let source = LinkResolver.Resolve(sortedInline)
-                              where source != null
-                              select source;
-
+                   group inline by inline.GetPriority(0)
+                   into g
+                   orderby g.Key
+                   from sortedInline in g
+                   let source = LinkResolver.Resolve(sortedInline)
+                   where source != null
+                   select source;
         }
 
         private void WriteLinks(TextWriter writer, string format, IEnumerable<IAssetSource> sources)

@@ -5,12 +5,12 @@ namespace MvcAssets
         public static IAssets WithPriority(this IAssets assets, int priority)
         {
             return new AssetsWithFilter(assets, asset =>
+                                                    {
+                                                        if (!asset.Priority.HasValue)
                                                         {
-                                                            if (!asset.Priority.HasValue)
-                                                            {
-                                                                asset.Priority = priority;
-                                                            }
-                                                        });
+                                                            asset.Priority = priority;
+                                                        }
+                                                    });
         }
 
         public static IAssets WithHeaderPlacement(this IAssets assets)
@@ -26,12 +26,12 @@ namespace MvcAssets
         public static IAssets WithPlacement(this IAssets assets, AssetPlacement placement)
         {
             return new AssetsWithFilter(assets, asset =>
+                                                    {
+                                                        if (!asset.Placement.HasValue)
                                                         {
-                                                            if (!asset.Placement.HasValue)
-                                                            {
-                                                                asset.Placement = placement;
-                                                            }
-                                                        });
+                                                            asset.Placement = placement;
+                                                        }
+                                                    });
         }
 
 

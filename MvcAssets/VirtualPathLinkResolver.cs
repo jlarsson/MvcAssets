@@ -11,6 +11,8 @@ namespace MvcAssets
             _context = context;
         }
 
+        #region IAssetLinkResolver Members
+
         public IAssetSource Resolve(ILinkAsset link)
         {
             var url = link.Link;
@@ -21,25 +23,27 @@ namespace MvcAssets
             if (url[0] == '~')
             {
                 var mapped = VirtualPathUtility.ToAbsolute(url, _context.Request.ApplicationPath);
-                return new AssetSource()
-                {
-                    Url = mapped,
-                    PhysicalPath = _context.Request.MapPath(mapped)
-                };
+                return new AssetSource
+                           {
+                               Url = mapped,
+                               PhysicalPath = _context.Request.MapPath(mapped)
+                           };
             }
             if (url.Contains("://"))
             {
-                return new AssetSource()
+                return new AssetSource
                            {
                                Url = url,
                                PhysicalPath = string.Empty
                            };
             }
-            return new AssetSource()
-            {
-                Url = url,
-                PhysicalPath = _context.Request.MapPath(url)
-            };
+            return new AssetSource
+                       {
+                           Url = url,
+                           PhysicalPath = _context.Request.MapPath(url)
+                       };
         }
+
+        #endregion
     }
 }

@@ -28,7 +28,7 @@ namespace MvcAssets
         public ICompressor Compressor { get; set; }
         public IAssetLinkResolver LinkResolver { get; set; }
 
-        #region IMvcHtmlAssets Members
+        #region IMvcAssets Members
 
         public IAssets JsLink(IJavascriptLink link)
         {
@@ -109,6 +109,13 @@ namespace MvcAssets
             output.Write(headInjector.InjectAssets(footerInjector.InjectAssets(content)));
         }
 
+        public override string ToString()
+        {
+            // We return an empty string case someone refers to Html.Assets() in a write statement
+            // Example (razor): @Html.Assets.JsInclude(...)
+            return string.Empty;
+        }
+
         #region Nested type: InlineEqualityComparer
 
         private class InlineEqualityComparer<T> : IEqualityComparer<T> where T : IInlineAsset
@@ -152,12 +159,5 @@ namespace MvcAssets
         }
 
         #endregion
-
-        public override string ToString()
-        {
-            // We return an empty string case someone refers to Html.Assets() in a write statement
-            // Example (razor): @Html.Assets.JsInclude(...)
-            return string.Empty;
-        }
     }
 }

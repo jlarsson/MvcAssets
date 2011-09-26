@@ -13,7 +13,7 @@ namespace MvcAssets
             _filter = filter;
         }
 
-        #region IHtmlAssets Members
+        #region IAssets Members
 
         public IAssets JsLink(IJavascriptLink link)
         {

@@ -4,6 +4,8 @@ namespace MvcAssets
 {
     public class NullCompressor : ICompressor
     {
+        #region ICompressor Members
+
         public IEnumerable<IAssetSource> CompressJavascript(IEnumerable<IAssetSource> sources)
         {
             return sources;
@@ -13,5 +15,7 @@ namespace MvcAssets
         {
             return sources;
         }
+
+        #endregion
     }
 }
