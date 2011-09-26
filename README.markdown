@@ -31,18 +31,13 @@ Optionally, if you need compression and combining of assets, use
 * Automatic handling of dulicate inline scripts, inline styles, javascript includes and css includes.
 * Best practice rendering of assets in either head or footer of page.
 * Allows references to assets in master views, views and partial views without risk of clobbering generated markup
-* Minification and combination of javascript and css files (MvcAssets.Compress)
+* Minification and combination of javascript and css files (via [AjaxMin](http://http://ajaxmin.codeplex.com))
 
 ## Legal
 
 MvcAssets is released under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
 
-MvcAssets.Compress has a combined license.
-
-* IKVM: http://sourceforge.net/apps/mediawiki/ikvm/index.php?title=License
-* YUI Compressor: http://yuilibrary.com/license/
-* YUI Compressor (transitive): http://www.mozilla.org/MPL/
-* YUI Compressor (transitive): https://github.com/purcell/jargs/blob/master/LICENCE
+AjaxMin is released under the [Apache License](http://ajaxmin.codeplex.com/license)
 
 ## Contribute
 
