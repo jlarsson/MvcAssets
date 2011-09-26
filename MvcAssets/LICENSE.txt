@@ -1,0 +1,2 @@
+﻿MvcAssets: http://www.opensource.org/licenses/mit-license.php
+AjaxMin: http://ajaxmin.codeplex.com/license
