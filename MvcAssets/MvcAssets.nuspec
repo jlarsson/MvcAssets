@@ -13,6 +13,12 @@
     <tags>assets mvc css javascript</tags>
     <dependencies>
       <dependency id="AjaxMin" version="4.19.4141.18463" />
+	  <dependency id="WebActivator" version="1.4" />
     </dependencies>
   </metadata>
+  <files>
+	<file src="Content\Views\Shared\*.cshtml" target="Content\Views\Shared"/>
+	<file src="Content\App_Start\MvcAssetsPackage.cs.pp" target="Content\App_Start"/>
+    <file src="tools\install.ps1" target="tools\install.ps1" />
+  </files>
 </package>

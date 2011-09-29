@@ -1,0 +1,1 @@
+nuget.exe pack MvcAssets.csproj -build -prop Configuration=Release;Platform=AnyCPU -OutputDirectory . -exclude license.txt
