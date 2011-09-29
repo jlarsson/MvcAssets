@@ -26,7 +26,7 @@ namespace MvcAssets
                 return new AssetSource
                            {
                                Url = mapped,
-                               PhysicalPath = _context.Request.MapPath(mapped)
+                               PhysicalPath = _context.Request.MapPath(RemoveQueryString(mapped))
                            };
             }
             if (url.Contains("://"))
@@ -40,8 +40,14 @@ namespace MvcAssets
             return new AssetSource
                        {
                            Url = url,
-                           PhysicalPath = _context.Request.MapPath(url)
+                           PhysicalPath = _context.Request.MapPath(RemoveQueryString(url))
                        };
+        }
+
+        private string RemoveQueryString(string url)
+        {
+            var qs = url.IndexOf('?');
+            return qs < 0 ? url : url.Substring(0, qs);
         }
 
         #endregion
