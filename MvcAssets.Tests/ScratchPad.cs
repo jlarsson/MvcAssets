@@ -15,7 +15,6 @@ namespace MvcAssets.Tests
                              };
 
             assets
-                .WithFooterPlacement()
                 .CssLink("/styles/s1.css")
                 .CssLink("/styles/s1.css")
                 .CssInline("body {background: white}")

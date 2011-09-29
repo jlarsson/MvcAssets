@@ -3,6 +3,6 @@ namespace MvcAssets
     public interface IAsset
     {
         int? Priority { get; set; }
-        AssetPlacement? Placement { get; set; }
+        string Section { get; set; }
     }
 }

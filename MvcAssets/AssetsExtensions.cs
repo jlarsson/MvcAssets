@@ -2,38 +2,28 @@ namespace MvcAssets
 {
     public static class AssetsExtensions
     {
+        public static IAssets Section(this IAssets assets, string section)
+        {
+            return new AssetsWithFilter(assets)
+                       {
+                           AssetHook = asset => { asset.Section = section; },
+                           RenderHook = a => AssetsMarkupHook.GetMarkupForSection(section)
+                       };
+        }
+
         public static IAssets WithPriority(this IAssets assets, int priority)
         {
-            return new AssetsWithFilter(assets, asset =>
-                                                    {
-                                                        if (!asset.Priority.HasValue)
-                                                        {
-                                                            asset.Priority = priority;
-                                                        }
-                                                    });
+            return new AssetsWithFilter(assets)
+                       {
+                           AssetHook = asset =>
+                                             {
+                                                 if (!asset.Priority.HasValue)
+                                                 {
+                                                     asset.Priority = priority;
+                                                 }
+                                             }
+                       };
         }
-
-        public static IAssets WithHeaderPlacement(this IAssets assets)
-        {
-            return assets.WithPlacement(AssetPlacement.Header);
-        }
-
-        public static IAssets WithFooterPlacement(this IAssets assets)
-        {
-            return assets.WithPlacement(AssetPlacement.Footer);
-        }
-
-        public static IAssets WithPlacement(this IAssets assets, AssetPlacement placement)
-        {
-            return new AssetsWithFilter(assets, asset =>
-                                                    {
-                                                        if (!asset.Placement.HasValue)
-                                                        {
-                                                            asset.Placement = placement;
-                                                        }
-                                                    });
-        }
-
 
         public static IAssets JsLink(this IAssets assets, string link)
         {

@@ -1,14 +1,10 @@
 namespace MvcAssets
 {
-    public class LinkAsset : ILinkAsset
+    public class LinkAsset : AssetBase, ILinkAsset
     {
         #region ILinkAsset Members
 
         public string Link { get; set; }
-
-        public int? Priority { get; set; }
-
-        public AssetPlacement? Placement { get; set; }
 
         #endregion
     }

@@ -2,11 +2,16 @@ namespace MvcAssets
 {
     public abstract class AssetBase : IAsset
     {
+        protected AssetBase()
+        {
+            Section = string.Empty;
+        }
+
         #region IAsset Members
 
         public int? Priority { get; set; }
 
-        public AssetPlacement? Placement { get; set; }
+        public string Section { get; set; }
 
         #endregion
     }

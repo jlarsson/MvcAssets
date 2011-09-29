@@ -8,7 +8,6 @@ namespace MvcAssets.Tests.Facts
         protected override void DefineAssets(IAssets assets)
         {
             assets
-                .WithFooterPlacement()
                 .CssLink("csslink.css")
                 .JsLink("jslink.js")
                 .CssInline("body {/**/}")

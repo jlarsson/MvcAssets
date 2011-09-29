@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace MvcAssets
 {
-    public abstract class AssetsInjectorBase : IAssetsInjector
+    public abstract class AssetsInjectorBase
     {
         public ICompressor Compressor { get; set; }
         public IAssetLinkResolver LinkResolver { get; set; }

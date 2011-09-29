@@ -5,9 +5,13 @@
     <title>@ViewBag.Title</title>
     @{
         Html.Assets()
-            .CssLink("~/Content/Site.css")
-            .JsLink("~/Scripts/jquery-1.5.1.min.js");
+            .CssLink("~/Content/Site.css");
+            
+        Html.Assets().Section("footer")
+            .JsLink("~/Scripts/jquery-1.6.4.min.js");
      }
+
+     @Html.Assets().Render()
 </head>
 <body>
     <div class="page">
@@ -32,4 +36,5 @@
         </div>
     </div>
 </body>
+@Html.Assets().Section("footer").Render()
 </html>

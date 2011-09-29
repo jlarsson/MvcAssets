@@ -23,8 +23,6 @@ namespace MvcAssets
         private readonly IAssetCollection<IJavascriptLink> _javascriptLinks =
             new AssetCollection<IJavascriptLink>(new LinkEqualityComparer<IJavascriptLink>());
 
-        public AssetPlacement DefaultPlacement { get; set; }
-        public int DefaultPriority { get; set; }
         public ICompressor Compressor { get; set; }
         public IAssetLinkResolver LinkResolver { get; set; }
 
@@ -34,6 +32,11 @@ namespace MvcAssets
         }
 
         #region IMvcAssets Members
+
+        public MvcHtmlString Render()
+        {
+            return AssetsMarkupHook.GetMarkupForSection(string.Empty);
+        }
 
         public IAssets JsLink(IJavascriptLink link)
         {
@@ -78,40 +81,37 @@ namespace MvcAssets
 
         public void RewriteOutput(string content, TextWriter output)
         {
-            var byPlacement = new
-                                  {
-                                      LinkResolver,
-                                      CssInlines = _cssInlines.ToLookup(a => a.GetPlacement(DefaultPlacement)),
-                                      CssLinks = _cssLinks.ToLookup(a => a.GetPlacement(DefaultPlacement)),
-                                      JavascriptInlines =
-                                          _javascriptInlines.ToLookup(a => a.GetPlacement(DefaultPlacement)),
-                                      JavscriptLinks = _javascriptLinks.ToLookup(a => a.GetPlacement(DefaultPlacement)),
-                                      DomReadyInlines = _domreadyInlines.ToLookup(a => a.GetPlacement(DefaultPlacement))
-                                  };
+            var startIndex = 0;
+            var renderedSections = new HashSet<string>();
+            foreach (var section in AssetsMarkupHook.GetSections(content))
+            {
+                output.Write(content.Substring(startIndex, section.Position-startIndex));
 
-            var headInjector = new HeaderAssetsInjector
-                                   {
-                                       Compressor = Compressor,
-                                       LinkResolver = LinkResolver,
-                                       CssInlines = byPlacement.CssInlines[AssetPlacement.Header],
-                                       CssLinks = byPlacement.CssLinks[AssetPlacement.Header],
-                                       JavascriptInlines = byPlacement.JavascriptInlines[AssetPlacement.Header],
-                                       JavascriptLinks = byPlacement.JavscriptLinks[AssetPlacement.Header],
-                                       DomReadyInlines = byPlacement.DomReadyInlines[AssetPlacement.Header]
-                                   };
-
-            var footerInjector = new FooterAssetsInjector
+                if (renderedSections.Add(section.Section))
+                {
+                    var writer = new AssetsWriter()
                                      {
                                          Compressor = Compressor,
                                          LinkResolver = LinkResolver,
-                                         CssInlines = byPlacement.CssInlines[AssetPlacement.Footer],
-                                         CssLinks = byPlacement.CssLinks[AssetPlacement.Footer],
-                                         JavascriptInlines = byPlacement.JavascriptInlines[AssetPlacement.Footer],
-                                         JavascriptLinks = byPlacement.JavscriptLinks[AssetPlacement.Footer],
-                                         DomReadyInlines = byPlacement.DomReadyInlines[AssetPlacement.Footer]
+                                         CssInlines = _cssInlines.Where(a => section.Section.Equals(a.Section)),
+                                         CssLinks = _cssLinks.Where(a => section.Section.Equals(a.Section)),
+                                         JavascriptInlines =
+                                             _javascriptInlines.Where(a => section.Section.Equals(a.Section)),
+                                         JavascriptLinks =
+                                             _javascriptLinks.Where(a => section.Section.Equals(a.Section)),
+                                         DomReadyInlines =
+                                             _domreadyInlines.Where(a => section.Section.Equals(a.Section))
                                      };
+                    writer.Write(output);
+                }
 
-            output.Write(headInjector.InjectAssets(footerInjector.InjectAssets(content)));
+
+                startIndex = section.Position + section.Length;
+            }
+            if (startIndex < content.Length)
+            {
+                output.Write(content.Substring(startIndex));
+            }
         }
 
         public override string ToString()
