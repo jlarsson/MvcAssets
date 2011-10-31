@@ -5,6 +5,7 @@
     <title>@ViewBag.Title</title>
     @{
         Html.Assets()
+            .WithPriority(-1000) // Ensure that assts on master have higher priority
             .CssLink("~/Content/Site.css")
             .JsLink("~/Scripts/jquery-1.6.4.min.js");
      }

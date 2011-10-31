@@ -9,7 +9,7 @@
     <projectUrl>https://github.com/jlarsson/MvcAssets</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <copyright>Copyright 2011</copyright>
+    <copyright>$copyright$</copyright>
     <tags>assets mvc css javascript</tags>
     <dependencies>
       <dependency id="AjaxMin" version="4.19.4141.18463" />
@@ -17,8 +17,12 @@
     </dependencies>
   </metadata>
   <files>
-	<file src="Content\Views\Shared\*.cshtml" target="Content\Views\Shared"/>
-	<file src="Content\App_Start\MvcAssetsPackage.cs.pp" target="Content\App_Start"/>
+    <file src="WebAssets.dll" target="lib\net40" />
+    <file src="WebAssets.pdb" target="lib\net40" />
+    <file src="MvcAssets.dll" target="lib\net40" />
+    <file src="MvcAssets.pdb" target="lib\net40" />
+	  <file src="Content\Views\Shared\*.cshtml" target="Content\Views\Shared"/>
+	  <file src="Content\App_Start\MvcAssetsPackage.cs.pp" target="Content\App_Start"/>
     <file src="tools\install.ps1" target="tools\install.ps1" />
   </files>
 </package>
