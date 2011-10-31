@@ -1,6 +1,6 @@
 using System;
 using System.Web;
-using MvcAssets.AjaxMin;
+using WebAssets;
 
 namespace MvcAssets
 {

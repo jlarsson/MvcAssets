@@ -1,4 +1,5 @@
 using Microsoft.Ajax.Utilities;
+using WebAssets;
 
 namespace MvcAssets.AjaxMin
 {

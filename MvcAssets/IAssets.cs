@@ -1,4 +1,5 @@
 using System.Web.Mvc;
+using WebAssets;
 
 namespace MvcAssets
 {

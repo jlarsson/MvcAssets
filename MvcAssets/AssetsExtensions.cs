@@ -1,3 +1,5 @@
+using WebAssets;
+
 namespace MvcAssets
 {
     public static class AssetsExtensions

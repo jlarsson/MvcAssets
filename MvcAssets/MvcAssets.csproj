@@ -46,42 +46,19 @@
     <Compile Include="AjaxMin\CompressorBase.cs" />
     <Compile Include="AjaxMin\CssCompressor.cs" />
     <Compile Include="AjaxMin\JsCompressor.cs" />
-    <Compile Include="AsIsAssetLinkResolver.cs" />
-    <Compile Include="AssetCollection.cs" />
     <Compile Include="AssetsInjectorBase.cs" />
     <Compile Include="AssetsMarkupHook.cs" />
-    <Compile Include="AssetsWriter.cs" />
     <Compile Include="AssetViewResult.cs" />
-    <Compile Include="CssInline.cs" />
-    <Compile Include="CssLink.cs" />
-    <Compile Include="InlineAsset.cs" />
     <Compile Include="MvcAssetsAttribute.cs" />
-    <Compile Include="AssetBase.cs" />
     <Compile Include="AssetExtensions.cs" />
     <Compile Include="Assets.cs" />
     <Compile Include="AssetsExtensions.cs" />
     <Compile Include="AssetsWithFilter.cs" />
     <Compile Include="HtmlHelperExtensions.cs" />
     <Compile Include="HttpContextBaseExtensions.cs" />
-    <Compile Include="IAssetCollection.cs" />
-    <Compile Include="ICompressor.cs" />
-    <Compile Include="ICssLink.cs" />
-    <Compile Include="IAsset.cs" />
-    <Compile Include="IAssetLinkResolver.cs" />
     <Compile Include="IAssets.cs" />
-    <Compile Include="ICssInline.cs" />
-    <Compile Include="IInlineAsset.cs" />
-    <Compile Include="ILinkAsset.cs" />
-    <Compile Include="IJavascriptInline.cs" />
-    <Compile Include="IJavascriptLink.cs" />
-    <Compile Include="IAssetSource.cs" />
     <Compile Include="IMvcAssets.cs" />
-    <Compile Include="JavascriptInline.cs" />
-    <Compile Include="JavascriptLink.cs" />
-    <Compile Include="AssetSource.cs" />
-    <Compile Include="LinkAsset.cs" />
     <Compile Include="MvcAssets.cs" />
-    <Compile Include="NullCompressor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VirtualPathLinkResolver.cs" />
   </ItemGroup>
@@ -93,6 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebAssets\WebAssets.csproj">
+      <Project>{388B2526-2E1B-4406-847E-C25F2E3C837A}</Project>
+      <Name>WebAssets</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
