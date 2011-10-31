@@ -53,6 +53,7 @@ function Ensure-Directory {
 		[System.IO.Directory]::CreateDirectory($dir)
 	}
 }
+
 function Print-Project-Description {
 	param($project)
 	Write-Host project_name = $project.project_name
