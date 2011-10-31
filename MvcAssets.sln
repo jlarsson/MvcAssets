@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetAssets", "AspNetAsset
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetAssetsDemo.Web", "AspNetAssetsDemo.Web\AspNetAssetsDemo.Web.csproj", "{A6DC6FE6-D311-4258-B4AC-E7C65F822BED}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "psake", "psake", "{7F849171-A7AE-4446-A431-F8492FBC1E7D}"
+	ProjectSection(SolutionItems) = preProject
+		default.ps1 = default.ps1
+		psake_ext.ps1 = psake_ext.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

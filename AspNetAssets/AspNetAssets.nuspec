@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <licenseUrl>https://github.com/jlarsson/MvcAssets/blob/master/MvcAssets/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/jlarsson/MvcAssets</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>$copyright$</copyright>
+    <tags>assets mvc css javascript</tags>
+  </metadata>
+  <files>
+    <file src="WebAssets.dll" target="lib\net40" />
+    <file src="WebAssets.pdb" target="lib\net40" />
+    <file src="AspNetAssets.dll" target="lib\net40" />
+    <file src="AspNetAssets.pdb" target="lib\net40" />
+  </files>
+</package>

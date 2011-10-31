@@ -2,10 +2,12 @@ packages/
 bin/
 obj/
 cache/
+build/
 *.user
 *.suo
 *.dll
 *.pdb
 *.nupkg
+*.gpState
 _resharper*
 Thumbs.db
