@@ -5,10 +5,14 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
 
-<assets:Script runat="server" Src="apa.js"></assets:Script>
-    <assets:StartupScript runat="server">
-        alert(1);
-    </assets:StartupScript>
+<assets:ScriptAsset runat="server" Src="apa.js"></assets:ScriptAsset>
+<assets:ScriptAsset runat="server"><script>apa()</script></assets:ScriptAsset>
+    <assets:StartupScriptAsset runat="server">
+        <Script>
+            var formId = '<%= secret %>';
+            // bohoo
+            </Script>
+    </assets:StartupScriptAsset>
 
 
     <h2>

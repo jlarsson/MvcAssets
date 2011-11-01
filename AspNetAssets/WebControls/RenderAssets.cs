@@ -11,6 +11,7 @@ namespace AspNetAssets.WebControls
         }
 
         public string Section { get; set; }
+
         protected override void Render(HtmlTextWriter writer)
         {
             var assets = AspNetAssets.Current;

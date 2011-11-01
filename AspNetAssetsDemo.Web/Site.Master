@@ -5,8 +5,8 @@
 <head runat="server">
     <title></title>
 
-    <assets:Style runat="server" Src="~/Styles/Site.css"></assets:Style>
-    <assets:Script runat="server" Src="~/scripts/jquery-1.4.1.js"/>
+    <assets:StyleAsset runat="server" Src="~/Styles/Site.css"></assets:StyleAsset>
+    <assets:ScriptAsset runat="server" Src="~/scripts/jquery-1.4.1.js"/>
     <assets:RenderAssets runat="server"/>
 
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
