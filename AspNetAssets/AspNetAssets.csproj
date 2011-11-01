@@ -44,12 +44,12 @@
     <Compile Include="AspNetAssets.cs" />
     <Compile Include="VirtualPathLinkResolver.cs" />
     <Compile Include="WebControls\RenderAssets.cs" />
-    <Compile Include="WebControls\AssetBase.cs" />
+    <Compile Include="WebControls\AssetControlBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IAspNetAssets.cs" />
-    <Compile Include="WebControls\Script.cs" />
-    <Compile Include="WebControls\StartupScript.cs" />
-    <Compile Include="WebControls\Style.cs" />
+    <Compile Include="WebControls\ScriptAsset.cs" />
+    <Compile Include="WebControls\StartupScriptAsset.cs" />
+    <Compile Include="WebControls\StyleAsset.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WebAssets\WebAssets.csproj">

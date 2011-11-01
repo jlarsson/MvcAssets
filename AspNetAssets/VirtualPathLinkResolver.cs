@@ -45,12 +45,12 @@ namespace AspNetAssets
                        };
         }
 
+        #endregion
+
         private string RemoveQueryString(string url)
         {
             var qs = url.IndexOf('?');
             return qs < 0 ? url : url.Substring(0, qs);
         }
-
-        #endregion
     }
 }
