@@ -10,8 +10,14 @@
     <assets:StartupScriptAsset runat="server">
         <Script>
             var formId = '<%= secret %>';
-            // bohoo
+        // bohoo
             </Script>
+    </assets:StartupScriptAsset>
+    
+    <assets:StartupScriptAsset runat="server" Visible="False">
+        <Script>
+            alert('This message never shows.');
+        </Script>
     </assets:StartupScriptAsset>
 
 

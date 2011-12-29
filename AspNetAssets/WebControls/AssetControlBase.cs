@@ -23,27 +23,30 @@ namespace AspNetAssets.WebControls
         {
             base.OnLoad(e);
 
-            var assets = AspNetAssets.EnsureCurrentAssets();
-            if (!string.IsNullOrEmpty(Src))
+            if (Visible)
             {
-                RegisterLink(assets, Src);
-            }
-
-            var inlineTemplate = GetInlineTemplate();
-            if (inlineTemplate != null)
-            {
-                using (var textWriter = new StringWriter())
+                var assets = AspNetAssets.EnsureCurrentAssets();
+                if (!string.IsNullOrEmpty(Src))
                 {
-                    using (var htmlTextWriter = new HtmlTextWriter(textWriter))
+                    RegisterLink(assets, Src);
+                }
+
+                var inlineTemplate = GetInlineTemplate();
+                if (inlineTemplate != null)
+                {
+                    using (var textWriter = new StringWriter())
                     {
-                        var control = new Control();
-                        inlineTemplate.InstantiateIn(control);
-                        control.RenderControl(htmlTextWriter);
-                    }
-                    var inline = textWriter.ToString();
-                    if (!string.IsNullOrEmpty(inline.Trim()))
-                    {
-                        RegisterInline(assets, inline);
+                        using (var htmlTextWriter = new HtmlTextWriter(textWriter))
+                        {
+                            var control = new Control();
+                            inlineTemplate.InstantiateIn(control);
+                            control.RenderControl(htmlTextWriter);
+                        }
+                        var inline = textWriter.ToString();
+                        if (!string.IsNullOrEmpty(inline.Trim()))
+                        {
+                            RegisterInline(assets, inline);
+                        }
                     }
                 }
             }
