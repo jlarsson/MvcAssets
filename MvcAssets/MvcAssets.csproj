@@ -33,25 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxMin">
-      <HintPath>..\packages\AjaxMin.4.19.4141.18463\lib\AjaxMin.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AjaxMin\AjaxMinCompressor.cs" />
-    <Compile Include="AjaxMin\CompressorBase.cs" />
-    <Compile Include="AjaxMin\CssCompressor.cs" />
-    <Compile Include="AjaxMin\JsCompressor.cs" />
     <Compile Include="AssetsInjectorBase.cs" />
     <Compile Include="AssetsMarkupHook.cs" />
     <Compile Include="AssetViewResult.cs" />
-    <Compile Include="Combine\Combiner.cs" />
-    <Compile Include="Combine\CssCombiner.cs" />
-    <Compile Include="Combine\JsCombiner.cs" />
     <Compile Include="MvcAssetsAttribute.cs" />
     <Compile Include="AssetExtensions.cs" />
     <Compile Include="Assets.cs" />
@@ -67,9 +57,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="MvcAssets.nuspec" />
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="LICENSE.txt" />

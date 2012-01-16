@@ -1,20 +1,19 @@
-using MvcAssets.AjaxMin;
-using WebAssets;
+using WebAssets.AjaxMin;
 
-namespace MvcAssets.Combine
+namespace WebAssets.Combine
 {
-    public class JsCombiner : CompressorBase
+    public class CssCombiner : CompressorBase
     {
         private readonly Combiner _combiner;
 
-        public JsCombiner(Combiner combiner)
+        public CssCombiner(Combiner combiner)
         {
             _combiner = combiner;
         }
 
         protected override string CompressedExtension
         {
-            get { return ".combined.js"; }
+            get { return ".combined.css"; }
         }
 
         protected override string VirtualCachePath

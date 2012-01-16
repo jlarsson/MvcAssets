@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 using MvcAssets;
-using MvcAssets.AjaxMin;
+using WebAssets.AjaxMin;
 
 namespace MvcAssetsDemo.Web
 {

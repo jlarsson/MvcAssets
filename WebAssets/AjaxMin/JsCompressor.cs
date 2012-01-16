@@ -1,20 +1,19 @@
 using Microsoft.Ajax.Utilities;
-using WebAssets;
 
-namespace MvcAssets.AjaxMin
+namespace WebAssets.AjaxMin
 {
-    public class CssCompressor : CompressorBase
+    public class JsCompressor : CompressorBase
     {
         private readonly AjaxMinCompressor _compressor;
 
-        public CssCompressor(AjaxMinCompressor compressor)
+        public JsCompressor(AjaxMinCompressor compressor)
         {
             _compressor = compressor;
         }
 
         protected override string CompressedExtension
         {
-            get { return ".min.css"; }
+            get { return ".min.js"; }
         }
 
         protected override string VirtualCachePath
@@ -30,7 +29,7 @@ namespace MvcAssets.AjaxMin
         protected override string Compress(string source)
         {
             var minifier = new Minifier();
-            var minified = minifier.MinifyStyleSheet(source);
+            var minified = minifier.MinifyJavaScript(source);
             if (minifier.Errors.Count > 0)
             {
                 return source;

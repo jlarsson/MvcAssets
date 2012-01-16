@@ -11,6 +11,9 @@
     <description>$description$</description>
     <copyright>$copyright$</copyright>
     <tags>assets mvc css javascript</tags>
+	<dependencies>
+	  <dependency id="AjaxMin" version="4.19.4141.18463" />
+    </dependencies>
   </metadata>
   <files>
     <file src="WebAssets.dll" target="lib\net40" />

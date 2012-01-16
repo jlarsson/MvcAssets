@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.44.4396.18853\lib\net20\AjaxMin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,12 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjaxMin\AjaxMinCompressor.cs" />
+    <Compile Include="AjaxMin\CompressorBase.cs" />
+    <Compile Include="AjaxMin\CssCompressor.cs" />
+    <Compile Include="AjaxMin\JsCompressor.cs" />
     <Compile Include="AsIsAssetLinkResolver.cs" />
     <Compile Include="AssetBase.cs" />
     <Compile Include="AssetCollection.cs" />
     <Compile Include="AssetExtensions.cs" />
     <Compile Include="AssetSource.cs" />
     <Compile Include="AssetsWriter.cs" />
+    <Compile Include="Combine\Combiner.cs" />
+    <Compile Include="Combine\CssCombiner.cs" />
+    <Compile Include="Combine\JsCombiner.cs" />
     <Compile Include="CssInline.cs" />
     <Compile Include="CssLink.cs" />
     <Compile Include="IAsset.cs" />
@@ -65,6 +75,9 @@
     <Compile Include="LinkAsset.cs" />
     <Compile Include="NullCompressor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 using AspNetAssets;
-using MvcAssets.Combine;
+using WebAssets.Combine;
 using AspNetAssets = AspNetAssets.AspNetAssets;
 
 namespace AspNetAssetsDemo.Web

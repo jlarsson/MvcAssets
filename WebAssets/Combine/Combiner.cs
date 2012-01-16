@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WebAssets;
 
-namespace MvcAssets.Combine
+namespace WebAssets.Combine
 {
     public class Combiner: ICompressor
     {

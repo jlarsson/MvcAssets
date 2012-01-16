@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using WebAssets;
 
-namespace MvcAssets.AjaxMin
+namespace WebAssets.AjaxMin
 {
     public class AjaxMinCompressor : ICompressor
     {
