@@ -11,21 +11,25 @@ namespace WebAssets.AjaxMin
         {
             _jsCompressor = new JsCompressor(this);
             _cssCompressor = new CssCompressor(this);
+            CombineJs = true;
+            CombineCss = false;
         }
 
         public string VirtualCachePath { get; set; }
         public IAssetLinkResolver LinkResolver { get; set; }
+        public bool CombineJs { get; set; }
+        public bool CombineCss { get; set; }
 
         #region ICompressor Members
 
         public IEnumerable<IAssetSource> CompressJavascript(IEnumerable<IAssetSource> sources)
         {
-            return _jsCompressor.Compress(sources);
+            return CombineJs ? _jsCompressor.Compress(sources) : sources;
         }
 
         public IEnumerable<IAssetSource> CompressCss(IEnumerable<IAssetSource> sources)
         {
-            return _cssCompressor.Compress(sources);
+            return CombineCss ? _cssCompressor.Compress(sources) : sources;
         }
 
         #endregion
