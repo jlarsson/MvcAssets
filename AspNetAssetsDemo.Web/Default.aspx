@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
 
-<assets:ScriptAsset runat="server" Src="apa.js"></assets:ScriptAsset>
+<assets:ScriptAsset runat="server" Src="~/scripts/site.js"></assets:ScriptAsset>
 <assets:ScriptAsset runat="server"><script>apa()</script></assets:ScriptAsset>
     <assets:StartupScriptAsset runat="server">
         <Script>

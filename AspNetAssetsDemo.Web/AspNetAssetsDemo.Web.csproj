@@ -55,6 +55,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -135,6 +136,14 @@
     <ProjectReference Include="..\AspNetAssets\AspNetAssets.csproj">
       <Project>{498AF609-A5BB-4026-9534-E99A5034B1A9}</Project>
       <Name>AspNetAssets</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcAssets\MvcAssets.csproj">
+      <Project>{C7DF34E6-7A3C-4595-8EA4-6C6B4DB81B6C}</Project>
+      <Name>MvcAssets</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebAssets\WebAssets.csproj">
+      <Project>{388B2526-2E1B-4406-847E-C25F2E3C837A}</Project>
+      <Name>WebAssets</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

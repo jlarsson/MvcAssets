@@ -49,6 +49,9 @@
     <Compile Include="AssetsInjectorBase.cs" />
     <Compile Include="AssetsMarkupHook.cs" />
     <Compile Include="AssetViewResult.cs" />
+    <Compile Include="Combine\Combiner.cs" />
+    <Compile Include="Combine\CssCombiner.cs" />
+    <Compile Include="Combine\JsCombiner.cs" />
     <Compile Include="MvcAssetsAttribute.cs" />
     <Compile Include="AssetExtensions.cs" />
     <Compile Include="Assets.cs" />

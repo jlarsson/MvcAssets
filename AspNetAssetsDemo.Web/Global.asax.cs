@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using AspNetAssets;
+using MvcAssets.Combine;
+using AspNetAssets = AspNetAssets.AspNetAssets;
 
 namespace AspNetAssetsDemo.Web
 {
@@ -13,6 +17,17 @@ namespace AspNetAssetsDemo.Web
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
+            Directory.CreateDirectory(Server.MapPath("~/cache"));
+            global::AspNetAssets.AspNetAssets.Factory = context => new global::AspNetAssets.AspNetAssets()
+                                                               {
+                                                                   LinkResolver = new VirtualPathLinkResolver(context),
+                                                                   Compressor =
+                                                                       new Combiner()
+                                                                           {
+                                                                               VirtualCachePath = "~/cache/", 
+                                                                               LinkResolver = new VirtualPathLinkResolver(context)
+                                                                           }
+                                                               };
 
         }
 

@@ -24,11 +24,22 @@ namespace AspNetAssets
         private readonly IAssetCollection<IJavascriptLink> _javascriptLinks =
             new AssetCollection<IJavascriptLink>(new LinkEqualityComparer<IJavascriptLink>());
 
+        static AspNetAssets()
+        {
+            Factory = context => new AspNetAssets
+                                     {
+                                         Compressor = new NullCompressor(),
+                                         LinkResolver = new VirtualPathLinkResolver(context)
+                                     };
+        }
+
         public AspNetAssets()
         {
             Compressor = new NullCompressor();
             LinkResolver = new VirtualPathLinkResolver(HttpContext.Current);
         }
+
+        public static Func<HttpContext, AspNetAssets> Factory { get; set; }
 
         public ICompressor Compressor { get; set; }
         public IAssetLinkResolver LinkResolver { get; set; }
@@ -96,7 +107,7 @@ namespace AspNetAssets
             var assets = Current;
             if (assets == null)
             {
-                assets = new AspNetAssets();
+                assets = Factory(HttpContext.Current);
                 Current = assets;
             }
             return assets;

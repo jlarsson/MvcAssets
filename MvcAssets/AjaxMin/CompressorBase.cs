@@ -48,7 +48,7 @@ namespace MvcAssets.AjaxMin
 
         private IAssetSource Compress(List<string> paths)
         {
-            var outputAsset = GetCompinedOutputPath(paths);
+            var outputAsset = GetCombinedOutputPath(paths);
             if (File.Exists(outputAsset.PhysicalPath))
             {
                 return outputAsset;
@@ -63,7 +63,7 @@ namespace MvcAssets.AjaxMin
             return outputAsset;
         }
 
-        private IAssetSource GetCompinedOutputPath(IEnumerable<string> paths)
+        private IAssetSource GetCombinedOutputPath(IEnumerable<string> paths)
         {
             var infos = from path in paths
                         select new FileInfo(path);
